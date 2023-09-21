@@ -1,0 +1,245 @@
+@charset 'utf-8';
+
+/*
+ * スクロールダウンガイド表示機能 
+ // ***********************************************
+ // ***********************************************
+ */
+.scrollGuideArea {
+  display: flex;
+  writing-mode: vertical-rl;          /* 英語記述方向、上～下 */
+  // position: sticky;
+  position: fixed;
+  top: 55vh;               // 500px;
+  
+  opacity: 0;
+  transform: translate(0,0);
+  z-index: 999;
+  
+  @include mquery( "mb" ) { left: 10px; };
+  @include mquery( "pc" ) { left: 30px; };    /* 60px */
+}
+/* 「scroll」文字列 */
+.scrollGuideArea p {
+  font-size: 10px;      // for scroll guide
+  line-height: 16px;
+  letter-spacing: 2px;
+  z-index: 999;
+
+  font-family: "Crimson Text", "Yu Mincho Medium", 游明朝体, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;;
+}
+// 
+// スクロールガイド「動く矢印」
+.downArrow{
+  position:relative;
+  left:-7px;           /* 50% */
+  top: 20px;
+}
+
+/* 線の描写 */
+.downArrow::after{
+  content: "";
+
+  /* 描画位置 */
+  position: absolute;
+  top: 10px;
+
+  /* 線の形状 */
+  width: 1px;
+  height: 0px;
+  background: gray;
+
+  /*【２】アニメーション：「keyframes」線の動き 2秒 永久ループ */
+  animation: pathmove 2s ease-in-out infinite;
+  opacity:0;
+}
+/*【２】アニメーション：高さ・位置・透過が変化して線が上から下に動く */
+@keyframes pathmove{
+  0%{
+    height:0;
+    top:0;
+    opacity: 0;
+  }
+  /* 全移動距離中「30％」で完全表示 */
+  30%{
+    height:70px;    /* 移動アロー、完全表示時の全体長 */
+    opacity: 0.8;
+  }
+  100%{
+    height:0;
+    top:100px;
+    opacity: 0;
+  }
+}
+
+/* 
+ * 「ヘッダー」ナビゲーションメニューに於ける、フォーカスONの下線表示
+ // ***********************************************
+ // ***********************************************
+ */
+header {
+  @include style-navUnderLine();
+}
+
+/* 
+ * 「フッター」ナビゲーションメニューに於ける、フォーカスONの下線表示
+ // ***********************************************
+ // ***********************************************
+ */
+footer {
+  @include style-navUnderLine( "#footerNav" );
+}
+
+/*
+ *　共通部品としての「ボタン」を定義。
+ // ***********************************************
+ // ***********************************************
+ */
+.btn {
+  display: inline-block;
+  text-align: center;
+  font-family:"Crimson Text", "Yu Mincho Medium", 游明朝体, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+  color: #333;
+  background-color: #fff;
+
+  border-radius: 4px;
+  box-shadow: 7px 7px rgba(3,3,3,0.3);
+
+  @include mquery( "mb" ) {
+    font-size: 3vw;      // for BTN (mobile)       //12px;
+    font-size: $mbDefaultFSize;
+    padding: 4vw 6vw;         // 8px 16px;
+    padding: 15px 20px;
+    line-height: 2vw; // 35px;  
+    line-height: 1.5em;
+  }
+  @include mquery( "pc" ) {
+    font-size: 0.8vw;    // for BTN         //12px;
+    font-size: $pcDefaultFSize;
+    padding: 1vw 1.5vw;         // 8px 16px;
+    padding: 15px 20px;
+    line-height: 1.5vw; // 35px;  
+    line-height: 1.5em;
+  }
+
+  letter-spacing: 1px;
+  // opacity: 0.8;
+  border: 1px solid #333;
+  border-radius: 5px;
+  transform: scale(0.8);
+  transition-duration: 0.5s;
+}
+.btn:hover {
+  color: white;
+  background-color: rgba(102,90,26,0.5);    // #665A1A;
+  // @include mquery( "pc" ) { font-size: 14px; }
+  opacity: 1.0;
+}
+.btn:active {
+  box-shadow: none;
+  position: relative;
+  top:  7px;
+  left: 7px;
+}
+
+// 
+// ギャラリー、表示画像種別選定ボタン飾り
+// 
+/*塗りから線に変わる*/
+.btnchangeline {
+  /*線の基点とするためrelativeを指定*/
+  position:relative;
+  /*ボタンの形状*/  
+  // color:#333;
+  padding: 10px 30px;
+
+  display:inline-block;
+  text-decoration: none;
+  outline: none;
+  /*アニメーションの指定*/   
+  transition:all 0.3s ease-in-out;
+}
+
+/*線の設定*/
+.btnchangeline::before {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  /*線の形状*/
+  width: 100%;
+  height: 100%;
+  // border-top: 2px solid #666;
+  // border-bottom: 2px solid #666;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid blue;
+  /*はじめは透過0に*/
+  opacity: 0;
+  transform: scale(0, 1);
+  /*アニメーションの指定*/   
+  transition: all 0.3s;
+}
+
+/*背景の設定*/
+.btnchangeline::after {
+  content: '';
+  /*絶対配置で背景の位置を決める*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  /*背景の形状*/
+  width: 100%;
+  height: 100%;
+  border-radius:8px;
+
+  // background-color:#333;
+
+  /*アニメーションの指定*/ 
+  transition: all 0.3s;
+}
+
+/*hoverした際の背景と線の形状*/
+.btnchangeline:hover::before {
+  opacity: 1;/*不透明に*/ 
+  transform: scale(1, 1);/*X方向に線を伸ばす*/
+}
+
+.btnchangeline:hover::after {
+  opacity: 0;/*透過0に*/
+  transform: scale(0, 1);/*X方向に背景を縮小*/
+}
+
+/*テキストの設定*/
+.btnchangeline span {
+  /*テキストを前面に出すためz-indexの値を高く設定*/  
+  position: relative;
+  z-index: 2;
+  /*テキストの形状*/
+  // color: #333;
+  /*アニメーションの指定*/   
+  transition: all 0.3s;
+}
+
+/*hoverした際のテキストの形状*/
+.btnchangeline:hover span {
+  letter-spacing: 2px;
+  // color: #333;
+}
+
+
+// 
+// 線分の定義
+// ***********************************************
+// ***********************************************
+// 
+// ■ 二重区分線
+ .doubleLine {
+  width: 95%;
+  display: inline-block;
+  padding: 3px;
+  border-bottom: double 5px rgba(180, 194, 220, 1);
+  margin-bottom: 5px;
+}

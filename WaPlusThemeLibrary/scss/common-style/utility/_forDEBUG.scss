@@ -1,0 +1,337 @@
+@charset "utf-8";
+
+// 
+// ***********************************************
+// 【重要】デバッグ機能稼働フラグ
+//      （ボーダーライン表示・非表示）
+//  ０：デバッグ動作「無し」
+//  １：デバッグ動作「あり」
+// ***********************************************
+$GB_DEBUG_FLAG: 0;
+// $GB_DEBUG_FLAG: 1;
+
+// 
+// ***********************************************
+// 【重要】デバッグ用、アニメーション停止フラグ
+//      （transform / opacity 等、SCSS設定）
+//  ０：アニメーション動作「無し」
+//  １：アニメーション動作「あり」
+// ***********************************************
+$GB_ANIMATE_FLAG: 1;                // =0: 非アニメーション　／ =1: アニメーション
+// $GB_ANIMATE_FLAG: 0;                // =0: 非アニメーション　／ =1: アニメーション
+
+// 
+// ***********************************************
+// 【重要】デバッグ用、横・X方向スクロール有無フラグ
+//      （ボーダーライン表示・非表示）
+//  ０：デバッグ動作「横スクロール・無し」
+//  １：デバッグ動作「横スクロール・有り」
+// ***********************************************
+$GB_SCROLL_FLAG: 0;
+// $GB_SCROLL_FLAG: 1;
+
+// 
+// ***********************************************
+// 【機能】デバッグ時、ボーダー表示
+// 【引数】基本・border 指定に匹敵
+//    $lineColor(i) : ボーダー色
+//    $lineType (i) : ボーダータイプ
+//    $linePx   (i) : ボーダー太さ
+// ***********************************************
+// 
+@mixin DEBUG-border ( $lineColor: red, $lineType: solid, $linePx: 2px ) {
+  @if $GB_DEBUG_FLAG == 1  {
+    border: $linePx $lineType $lineColor;
+    border-radius: 20px;
+  }
+}
+
+// for DEBUG
+.areaChk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk1 {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk2 {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk3 {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk4 {
+  position: absolute;
+  top: 400px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk5 {
+  position: absolute;
+  top: 500px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk6 {
+  position: absolute;
+  top: 600px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk7 {
+  position: absolute;
+  top: 700px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk8 {
+  position: absolute;
+  top: 800px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk9 {
+  position: absolute;
+  top: 900px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+
+.areaChk10 {
+  position: absolute;
+  top: 1000px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: blueviolet;
+  border: 1px solid #333;
+}
+.areaChk11 {
+  position: absolute;
+  top: 1100px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk12 {
+  position: absolute;
+  top: 1200px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk13 {
+  position: absolute;
+  top: 1300px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk14 {
+  position: absolute;
+  top: 1400px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk15 {
+  position: absolute;
+  top: 1500px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+
+
+
+
+.areaChk16 {
+  position: absolute;
+  top: 1600px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk17 {
+  position: absolute;
+  top: 1700px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk18 {
+  position: absolute;
+  top: 1800px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk19 {
+  position: absolute;
+  top: 1900px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk20 {
+  position: absolute;
+  top: 2000px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: blueviolet;
+  border: 1px solid #333;
+}
+
+
+
+
+.areaChk21 {
+  position: absolute;
+  top: 2100px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk22 {
+  position: absolute;
+  top: 2200px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk23 {
+  position: absolute;
+  top: 2300px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk24 {
+  position: absolute;
+  top: 2400px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk25 {
+  position: absolute;
+  top: 2500px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk26 {
+  position: absolute;
+  top: 2600px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk27 {
+  position: absolute;
+  top: 2700px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk28 {
+  position: absolute;
+  top: 2800px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk29 {
+  position: absolute;
+  top: 2900px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: lime;
+  border: 1px solid #333;
+}
+.areaChk30 {
+  position: absolute;
+  top: 3000px;
+  left: 0;
+  width: 20px;
+  height: 100px;
+  background-color: blueviolet;
+  border: 1px solid #333;
+}

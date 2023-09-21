@@ -1,0 +1,28 @@
+// 
+// レスポンシヴデザイン向け、ブレークポイント設定ファイル
+// 【参照：https://zenn.dev/web_tips/articles/095d7419507ca9】
+// 
+// ★ 注意！
+// 　ここのMB/PC閾値を変更した場合、JavaSciptファイル
+// 【./js/com/breakPointsSetByWindowSize.js：LINE/11「GB_minWidth」】の修正を行う事！
+// 
+$breakpoints: (
+    // 【参考】「https://hitonote.jp/column/sitekaizenn-seisaku/12425/」
+    // "mb": "screen and (max-width: 519px)",
+    // "pc": "screen and (min-width: 520px)",
+    "mb": "screen and (max-width: 679px)",
+    "pc": "screen and (min-width: 680px)",
+    // "mb": "screen and (max-width: 959px)",
+    // "pc": "screen and (min-width: 960px)",
+    // "mb": "screen and (max-width: 1099px)",
+    // "pc": "screen and (min-width: 1100px)",
+    ) !default;
+
+@mixin mquery( $breakpoint ) {
+  // 
+  // 「$breakpoints」から「$breakpoint」で一致する値を返す
+  // 「#{}」は、値を変数として扱う事が出来る。
+  @media #{ map-get( $breakpoints, $breakpoint ) } {
+      @content;
+  }
+}

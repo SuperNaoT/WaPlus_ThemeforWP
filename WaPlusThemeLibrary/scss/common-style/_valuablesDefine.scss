@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+// 
+// ***********************************************
+// ★ 共通利用値定義
+// ***********************************************
+// 画面最大有効幅
+$areaMaxWidth: 1170px;        // 1170px;
+
+// 
+// 当該サイト、ヘッダー高さを設定
+// ☛ この値にて、ヘッダー部高さを決め、
+// ☛ この値にて、mainContents 表示開始位置を決めている
+// 参照ファイル；_headerStyle.scss
+// 
+$siteHeaderHeight: 110px;
+
+$pcDefaultFSize: 16px;              // 16px 1vw;
+$pcDefaultFSize: 0.95vw;              // 16px 1vw;
+$pcDefaultFSize: clamp( 0.95vw, 0.95vw, 16px );              // 16px 1vw;
+
+$mbDefaultFSize: 14px;               // 4vw
+
+
+

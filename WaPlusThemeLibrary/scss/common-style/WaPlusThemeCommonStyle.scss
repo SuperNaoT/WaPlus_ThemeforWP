@@ -1,0 +1,134 @@
+@charset 'utf-8';
+
+// 
+// レスポンシヴデザイン・ブレークポイント設定ファイル
+@import "./utility/breakpoints";
+
+// 
+// 各種値、定義変数格納ファイル
+@import "./utility/forDEBUG";
+
+// 
+// 各種値、定義変数格納ファイル
+@import "./valuablesDefine";
+
+// 
+// 各種値、定義変数格納ファイル
+@import "./mixinDefine";
+
+// 
+// サイトロードスクリーン表示関連定義格納ファイル
+@import "./siteLoadScreen";
+
+// 
+// ユーティリティ要素機能実装（ボタン・リンク下線アニメ・他）
+@import "./mainUtility";
+
+// 
+// サイトヘッダー（ロゴ・ナビゲーションメニュー）
+// ***********************************************
+// ***********************************************
+// 
+@import "./headerStyle";
+
+//
+// ***********************************************
+// ★ サイトフッター セクション
+// ***********************************************
+@import "./footerStyle";
+
+// 
+// 【Pallax効果】「rellax」関連定義
+// @import "../../../Investigation/rellax/scss/rellax";
+// @import "./rellax";
+
+
+html {scroll-behavior: smooth; font-size: 16px; }
+
+  /* スクロールの幅の設定 */
+  html::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  }
+  
+  /* スクロールの背景の設定 */
+  html::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: 0 0 4px #aaa inset;
+  box-shadow: 0 0 4px rgba(117,106,48,1) inset;
+  }
+  
+  /* スクロールのつまみ部分の設定 */
+  html::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba( 117, 106, 48, 0.7);
+  }
+
+  body {
+    overflow-x: hidden;
+    @if $GB_SCROLL_FLAG == 1  {
+      overflow-x:visible;
+    }
+
+    // /* IE, Edge 対応 */
+    // -ms-overflow-style: none;
+    // /* Firefox 対応 */
+    // scrollbar-width: none;
+    font-family:游明朝体, "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+  }
+  /* Chrome, Safari 対応 */
+  // body::-webkit-scrollbar {
+  //   display:none;
+  // }
+  
+p {
+  font-family:游明朝体, "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+}
+
+.container {
+  width: 100%;
+  max-width: $areaMaxWidth;    //1170px;
+  margin: 0 auto;
+    
+  // // 
+  // // ***** 20220321
+  // // 【Knowledge】＊＊＊＊＊
+  // // ※ アニメーションでの注意点！
+  // //   子要素が画面外から画面内に左右から移動してくる場合、
+  // //   その親要素について、はみ出た部分に非表示を設定しないと、
+  // //   画面を横にスワップすると、画面がグニャグニャと動く。
+  // //   特に、モバイル用レスポンシヴ画面にて、ＰＣ画面用要素と共有していると、
+  // //   当現象が、モバイル用レスポンシヴ画面にて発生する！
+  // overflow: hidden;
+
+  // border: 2px dashed rgba( 3, 3, 3, 0 );
+
+}
+
+// 
+// 共通表示属性定義
+.mbMgnTop05 { @include mquery( "mb" ) { margin-top:  5px; } }
+.mbMgnTop10 { @include mquery( "mb" ) { margin-top: 10px; } }
+
+.colBlue { color: blue; }
+
+
+// 
+// 「画面仕切りドットライン」表示設定
+.dline {
+  margin: 50px 0;
+	@include mquery( "mb" )  { margin: 30px 0; }
+  border-bottom: 5px dotted rgba(180, 194, 220, 1);
+}
+
+.sdline {
+  margin: 30px;
+	@include mquery( "mb" )  { margin: 10px; }
+  border-bottom: 2px dotted rgba(180, 194, 220, 1);
+  // border-bottom: 2px dotted rgba(3, 3, 3, 1);
+}
+
+@include mquery( "pc" ) { .forMB { display: none; } }
+@include mquery( "mb" ) { .forPC { display: none; } }
+
+// .whiteShadowLetter { @include style-whiteShadowLetter; }

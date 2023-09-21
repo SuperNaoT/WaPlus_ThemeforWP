@@ -1,0 +1,159 @@
+@charset 'utf-8';
+
+// 
+// ***********************************************
+// ***********************************************
+// 和Plus サイト本体記述
+// ***********************************************
+// ***********************************************
+// 
+// サイトヘッダー（ロゴ・ナビゲーションメニュー）
+// ***********************************************
+// ***********************************************
+// 
+.siteHeader {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-100%);
+
+  // background-color: #f6f6f6;
+  // color: #333;
+
+  // border: 1px solid red;
+
+  // 
+  // 「ヘッダー」表示位置固定
+  // position:sticky;
+  position: fixed;
+  top:  0;
+  left: 0;
+  // @include mquery( "mb" ) { height:  80px; }           // 2022-12-19
+  width: 100vw;
+  height: #{$siteHeaderHeight};
+  z-index: 1;           // 2
+
+  // 
+  // ロゴ
+  .waPlusLogo, .waPlusLogoNL, .waPlusLogoDef {
+    @include mquery( "mb" ) { margin: 15px 30px; width: 50vw; max-width:  300px; };       // 2022-12-19
+    // @include mquery( "pc" ) { margin: 15px  5vw; width: 17vw; margin-left: 10vw; };
+    @include mquery( "pc" ) { margin: 15px  3vw; width: 17vw; margin-left: 10vw; };
+    transition: transform 500ms;
+    // border: 2px dashed limegreen;
+  }
+  .waPlusLogoDef {
+    height: calc( #{$siteHeaderHeight} - 20px ) !important;
+    width:  calc( #{$siteHeaderHeight} - 20px ) !important;
+    // height: #{$siteHeaderHeight} !important;
+    // width:  #{$siteHeaderHeight} !important;
+  }
+  .waPlusLogo:hover, .waPlusLogoDef:hover {
+    transform: scale(1.05);
+  }
+
+  // 
+  // ナビゲーションメニュー
+  nav {
+    width: 40%;
+    width: 100%;              // 20230914 *****
+
+    // border: 2px solid limegreen;
+    // 
+    // サイトヘッダー部の高さを決める！
+    // @include mquery( "mb" ) { height:  80px; }
+    // @include mquery( "pc" ) { height: 100px; }
+    display: flex;
+    justify-content: center;  // 20230914 *****
+    padding-top: 20px;
+
+    .mainNav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // margin-left: 10vw;    // 20230914 *****
+
+      // border: 3px dashed red;
+
+      // ナビメニュー間「サブメニュー消去用エリア」
+      .navInter {
+        display:block;
+        content: "---";
+        width: 30px;
+        height: 100%;
+        // border: 1px dashed lime;
+      }
+      .navInter:nth-of-type(1) {
+        width: 100px;
+        // border: 1px dashed lime;
+      }
+      // .navInter:hover {
+      //   background-color: gray;
+      // }
+
+      @include mquery( "mb" )  { display: none; }
+    }
+  }  
+
+  // ナビメニュー上部「サブメニュー消去用エリア」
+  #subMnuErase {
+    position: fixed;
+    top: 0;
+    height: 48px;
+    // border: 1px solid lime;
+  }
+
+  // 
+  // レスポンシヴ・ハンバーガーメニュー
+  .hamburgerMenu-Wrapper {
+    @include mquery( "mb" )  { display: block; }
+    @include mquery( "pc" )  { display:  none; }
+  }
+
+  .menuPos-0_subMenu   { @include subMenu; }   // 20230914 *****
+  .menuPos-1_subMenu   { @include subMenu; }
+  .menuPos-2_subMenu   { @include subMenu; }
+  .menuPos-3_subMenu   { @include subMenu; }
+  .menuPos-4_subMenu   { @include subMenu; }
+  .menuPos-5_subMenu   { @include subMenu; }
+  .menuPos-6_subMenu   { @include subMenu; }
+  .menuPos-7_subMenu   { @include subMenu; }
+  .menuPos-8_subMenu   { @include subMenu; }
+  .menuPos-9_subMenu   { @include subMenu; }
+  .menuPos-10_subMenu  { @include subMenu; }
+  .menuPos-11_subMenu  { @include subMenu; }
+  .menuPos-12_subMenu  { @include subMenu; }
+  .menuPos-13_subMenu  { @include subMenu; }
+  .menuPos-14_subMenu  { @include subMenu; }
+  .menuPos-15_subMenu  { @include subMenu; }
+  .menuPos-16_subMenu  { @include subMenu; }
+  .menuPos-17_subMenu  { @include subMenu; }
+  .menuPos-18_subMenu  { @include subMenu; }
+  .menuPos-19_subMenu  { @include subMenu; }
+}
+
+.hbgrMenuElm {
+  text-align: left;
+  font-size: 0.9em;         // 2vh; Menu's size
+  font-weight: normal;      // bold;
+
+  color: #333 !important;
+
+  // width: 80%;             // 2022-12-19
+  margin: 0px auto;
+
+  // border: 1px solid gray;       // 2
+}
+
+// 
+// ハンバーガーメニュー展開時、サブメニューの表示位置を、
+// 親メニューよりインデントさせる。
+.subMenuDispPos {
+  margin-left: 15px;
+}
+
+#pageWrapper {
+  position: relative;
+  top: #{$siteHeaderHeight};
+  // border: 2px dashed limegreen;
+}

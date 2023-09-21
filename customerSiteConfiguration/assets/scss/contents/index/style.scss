@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+// 
+// ■ スタイルシート共通基本定義実装
+//   ☛ レスポンシブデザイン対応、デバイス判断機能の利用を可能にさせる
+//      【@include mquery( "pc" or "mb" )】
+// 
+@import "./../../../../../WaPlusThemeLibrary/scss/common-style/WaPlusThemeCommonStyle";
+
+.main {
+  height: 100px;
+}

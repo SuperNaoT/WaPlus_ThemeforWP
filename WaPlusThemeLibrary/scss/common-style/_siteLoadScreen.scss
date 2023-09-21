@@ -1,0 +1,215 @@
+@charset 'utf-8';
+
+html {scroll-behavior: smooth; font-size: 16px; }
+
+// 
+// ■ スクロールバーの定義
+// 
+
+/* スクロールの幅の設定 */
+html::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+  
+  /* スクロールの背景の設定 */
+html::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: 0 0 4px #aaa inset;
+  box-shadow: 0 0 4px rgba(117,106,48,1) inset;
+}
+  
+  /* スクロールのつまみ部分の設定 */
+ html::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba( 117, 106, 48, 0.7);
+}
+
+body {
+  overflow-x: hidden;
+  // /* IE, Edge 対応 */
+  // -ms-overflow-style: none;
+  // /* Firefox 対応 */
+  // scrollbar-width: none;
+  font-family:游明朝体, "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+}
+/* Chrome, Safari 対応 */
+// body::-webkit-scrollbar {
+//   display:none;
+// }
+
+// 
+// メインコンテンツ、スクロール出来ない！調査中設定
+// ※　このクラスを「<body>」に追加すると、
+// 　　サイトロード画面中は、スクロールしない。
+// 　　但し、サイトロード画面消去後もスクロールせずに、
+// 　　メインコンテンツが見えない。
+// 
+.bodyLock {
+  overflow: hidden;
+}
+
+// 
+// サイトローディング画面は、初期設定・非表示
+// .head {
+.loading {
+
+  // 
+  // 表示位置固定
+  // サイトロード画面表示中、
+  // メインコンテンツ部分を非表示にする為
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  @include mquery( "pc" ) { background-image: url( './../../Images/loadBGImage.jpg' ); }
+  @include mquery( "mb" ) { background-image: url( './../../Images/loadBGImage_MB.jpg' ); }
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  scrollbar-width: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+
+  // 背景画像を下から表示
+  // transform: translateY(10px);
+  // transition-duration: 1s;
+  
+  .gradient {
+    .-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      will-change: transform;
+    }
+    .gra-out {
+      // background: linear-gradient(180deg, rgba(112, 23, 64,  1) 0%,
+                                          // rgba(112, 23, 64,0.5) 50%,
+      background: linear-gradient(180deg, rgba(3, 3, 3,  1) 0%,
+                                          rgba(112, 23, 64,0.3) 50%,
+                                          rgba(112, 23, 64,  0) 100% );
+      opacity: 0.5;
+    }
+    .gra-inner {
+      background: linear-gradient(180deg, rgba(0,0,0,  1) 0%,
+                                          rgba(0,0,0,0.1) 60%,
+                                          rgba(0,0,0,  1) 100% );
+      transform: translateY(0px);
+      opacity: 0;
+    }
+  }
+  h1 {
+    position: absolute;
+    display: flex;
+    z-index: 9;
+
+                              top: 50%;
+    @include mquery( "mb" ) { top: 42%; }
+
+    right: 50%;
+    transform: translateX(50%);
+    img {
+      opacity: 0;
+      width: 10vh;           // 130px; 75px
+      height: auto;
+      // transform: translateY(-75%);
+    }
+    span {
+      color: #fff;       // 白
+      // color: #665A1A;    // GOLD
+      // color: #FFD8A1;    // 桜色
+      // color: #BC002D;    // 日の丸赤
+      font-size: 5vh;           // 56px;
+      font-family: 'Work Sans';
+      font-weight: normal;      // 300;
+      opacity: 0;
+      // 文字が降ってくる、開始点からの距離指定
+      transform: translate(0, -100%) rotateY(-100deg);
+    }
+  }
+}
+
+// 
+// 【active】クラス付随時のみ、表示
+.loading.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(244,173,199,0.1);    // 明るい灰みの赤紫系の色
+  background-color: rgba(3,3,3,0.1);
+  // background-color: lime;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: center;
+  will-change: transform;
+
+}
+
+p {
+  font-family:游明朝体, "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+}
+
+.container {
+  width: 100%;
+  max-width: $areaMaxWidth;
+  margin: 0 auto;
+
+  // // 
+  // // ***** 20220321
+  // // 【Knowledge】＊＊＊＊＊
+  // // ※ アニメーションでの注意点！
+  // //   子要素が画面外から画面内に左右から移動してくる場合、
+  // //   その親要素について、はみ出た部分に非表示を設定しないと、
+  // //   画面を横にスワップすると、画面がグニャグニャと動く。
+  // //   特に、モバイル用レスポンシヴ画面にて、ＰＣ画面用要素と共有していると、
+  // //   当現象が、モバイル用レスポンシヴ画面にて発生する！
+  // overflow: hidden;
+
+}
+
+.mainContents {
+  position: relative; // absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  // margin: 0 auto;
+  // max-width: 1200px;     // 1170px;
+
+  // border: 2px dashed red;
+
+
+  // タイトル用日本語フォント
+  font-family: 游明朝体, "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+  color: #333;
+  background-color: #fff;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+
+}
+
+// 
+// 【active】クラス付随時のみ、表示
+.mainContents.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+// 
+// サイトメインページ用定義実装
+// @import "./00_mainBody";
