@@ -41,6 +41,12 @@
   
 ?>
 
+  <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
+  <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
+  </div>    <!-- 【comHeader.php】にて定義！ main container -->
+  <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
+  <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
+
     <footer>
       <div class="siteFooter" id="footerSection">
         <div class="cmpyInfo" >
@@ -136,7 +142,7 @@
       <div class="rightsNote"><p>Copyright © 2018 WaPlus Co., Ltd. All Rights Reserved.</p></div>
     </footer>
 
-  </div>      <!-- mainContents-->
+  </div>      <!-- $pageWrapper / mainContents -->
 
   <?php
 			// ★【重要】WORDPRESSのお約束

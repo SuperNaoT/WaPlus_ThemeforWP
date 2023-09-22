@@ -30,14 +30,14 @@ Template Name: 和Plus：企業理念
 
     <!--  -->
     <!-- サイト：活動理念ページ・メインコンテンツ -->
-    <div class="main" id="mainArea">
+    <!-- <div class="main" id="mainArea" style="border: 2px solid green;"> -->
 
       <?php
         // get_template_part( 'WaPlusCfg/contents/404/subPage', "404" );
       ?>
 
       <p><br><br><br>　■ ご指定のページは見つかりませんでした。<br><br><br><br></p>
-    </div>    <!-- main -->
+    <!-- </div>     main -->
 
 <?php 
   // フッター部の取込み

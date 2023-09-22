@@ -1,0 +1,73 @@
+@charset 'utf-8';
+
+/*
+ * スクロールダウンガイド表示機能 
+ // ***********************************************
+ // ***********************************************
+ */
+.scrollGuideArea {
+  display: flex;
+  writing-mode: vertical-rl;          /* 英語記述方向、上～下 */
+  // position: sticky;
+  position: fixed;
+  top: 55vh;               // 500px;
+  
+  opacity: 0;
+  transform: translate(0,0);
+  z-index: 999;
+  
+  @include mquery( "mb" ) { left: 10px; };
+  @include mquery( "pc" ) { left: 30px; };    /* 60px */
+}
+/* 「scroll」文字列 */
+.scrollGuideArea p {
+  font-size: 10px;      // for scroll guide
+  line-height: 16px;
+  letter-spacing: 2px;
+  z-index: 999;
+
+  font-family: "Crimson Text", "Yu Mincho Medium", 游明朝体, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;;
+}
+// 
+// スクロールガイド「動く矢印」
+.downArrow{
+  position:relative;
+  left:-7px;           /* 50% */
+  top: 20px;
+}
+
+/* 線の描写 */
+.downArrow::after{
+  content: "";
+
+  /* 描画位置 */
+  position: absolute;
+  top: 10px;
+
+  /* 線の形状 */
+  width: 1px;
+  height: 0px;
+  background: gray;
+
+  /*【２】アニメーション：「keyframes」線の動き 2秒 永久ループ */
+  animation: pathmove 2s ease-in-out infinite;
+  opacity:0;
+}
+/*【２】アニメーション：高さ・位置・透過が変化して線が上から下に動く */
+@keyframes pathmove{
+  0%{
+    height:0;
+    top:0;
+    opacity: 0;
+  }
+  /* 全移動距離中「30％」で完全表示 */
+  30%{
+    height:70px;    /* 移動アロー、完全表示時の全体長 */
+    opacity: 0.8;
+  }
+  100%{
+    height:0;
+    top:100px;
+    opacity: 0;
+  }
+}

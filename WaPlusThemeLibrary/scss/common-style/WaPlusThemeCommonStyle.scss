@@ -22,7 +22,7 @@
 
 // 
 // ユーティリティ要素機能実装（ボタン・リンク下線アニメ・他）
-@import "./mainUtility";
+@import "./scrollGuide";
 
 // 
 // サイトヘッダー（ロゴ・ナビゲーションメニュー）
@@ -88,6 +88,7 @@ p {
 .container {
   width: 100%;
   max-width: $areaMaxWidth;    //1170px;
+  height: 100%;
   margin: 0 auto;
     
   // // 
@@ -102,32 +103,12 @@ p {
   // overflow: hidden;
 
   // border: 2px dashed rgba( 3, 3, 3, 0 );
+  border: 2px dashed red;
 
 }
 
 // 
 // 共通表示属性定義
-.mbMgnTop05 { @include mquery( "mb" ) { margin-top:  5px; } }
-.mbMgnTop10 { @include mquery( "mb" ) { margin-top: 10px; } }
-
-.colBlue { color: blue; }
-
-
-// 
-// 「画面仕切りドットライン」表示設定
-.dline {
-  margin: 50px 0;
-	@include mquery( "mb" )  { margin: 30px 0; }
-  border-bottom: 5px dotted rgba(180, 194, 220, 1);
-}
-
-.sdline {
-  margin: 30px;
-	@include mquery( "mb" )  { margin: 10px; }
-  border-bottom: 2px dotted rgba(180, 194, 220, 1);
-  // border-bottom: 2px dotted rgba(3, 3, 3, 1);
-}
-
 @include mquery( "pc" ) { .forMB { display: none; } }
 @include mquery( "mb" ) { .forPC { display: none; } }
 

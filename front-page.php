@@ -54,13 +54,7 @@
 
     <!--  -->
     <!-- サイトトップページ・メインコンテンツ -->
-    <div class="main" id="mainArea" style="height: 500px;">
-        <div class="areaChk" >000</div>
-        <div class="areaChk1">100</div>
-        <div class="areaChk2">200</div>
-        <div class="areaChk3">300</div>
-        <div class="areaChk4">400</div>
-    </div> <!-- main -->
+    <p><br><br><br><br>高さが出ないな・・・<br><br><br><br><br></p>
 
 <!-- **************************************************************** -->
 <!-- **************************************************************** -->
