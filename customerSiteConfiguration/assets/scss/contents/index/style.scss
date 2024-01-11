@@ -5,8 +5,50 @@
 //   ☛ レスポンシブデザイン対応、デバイス判断機能の利用を可能にさせる
 //      【@include mquery( "pc" or "mb" )】
 // 
-@import "./../../../../../WaPlusThemeLibrary/scss/common-style/WaPlusThemeCommonStyle";
+// @import "./../../../../../WaPlusThemeLibrary/scss/common-style/WaPlusThemeCommonStyle";
 
-.main {
-  height: 100px;
+// 
+// レスポンシヴデザイン・ブレークポイント設定ファイル
+@import "./../../../../../WaPlusThemeLibrary/scss/common-style/utility/breakpoints";
+
+// 
+// 各種値、定義変数格納ファイル
+@import "./../../../../../WaPlusThemeLibrary/scss/common-style/utility/valuablesDefine";
+
+
+@include mquery( "pc" ) {
+  .contianer {
+    border: 10px solid blue !important;
+  }
+
+  /* ビューポート横向きの場合のスタイル */
+  @media screen and (orientation: landscape) {
+    .container {
+      width:  177vh !important; 
+      // height: calc( 100vh - $siteHeaderHeight ) !important;
+      min-height: $areaMinHeightL;
+      max-width:  $areaMaxWidthL  !important;    // 1500px;
+      max-height: $areaMaxHeightL !important;    //  847px;
+
+      display:flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 5px dashed red;
+    }
+  }
+  /* ビューポート縦向きの場合のスタイル */
+  @media screen and (orientation: portrait) {
+    .container {
+      width:  80vh !important; 
+      // height: calc( 57vh - $siteHeaderHeight ) 57vh !important;
+      min-height: $areaMinHeightL;
+
+      display:flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 5px dashed blueviolet;
+    }
+  }
 }

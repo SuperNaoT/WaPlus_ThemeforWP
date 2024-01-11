@@ -50,6 +50,7 @@
       $src = '//fonts.googleapis.com/css2?family=Work+Sans:wght@100;200&display=swap';
       // CSSファイル取込実行
       wp_enqueue_style( $handle, $src, $deps, $ver, $media );
+
     }
 
     // enqueue：「ＦＩＦＯスタック」に積み込む事

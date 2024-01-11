@@ -64,7 +64,7 @@
         
         // // 
         // // メニュー位置・ページ種別判定及び設定
-        require_once( get_template_directory() . '/WaPlusThemeLibrary/php/tools/setPageKinds.php' );
+        require_once( get_template_directory() . '/WaPlusThemeLibrary/php/utility/setPageKinds.php' );
 
         echo "This THEME was made for the standard the projects of WaPlus Co.,Ltd. .";
         echo $titleMsg;
@@ -82,7 +82,7 @@
 
 
     <!-- ブラウザタブ・ファビコン表示 -->
-    <!-- <link rel="shortcut icon" href="<?php // echo esc_url( get_template_directory_uri().'/wp-config/Images/favicon.ico' ); ?>"> -->
+    <!-- <link rel="shortcut icon" href="<?php // echo esc_url( get_template_directory_uri().'/WaPlusThemeLibrary/Images/favicon.ico' ); ?>"> -->
 
     <!-- ★【重要】WORDPRESSのお約束：WORDPRESS利用のJavascript/PHP等の取込み（WORDPRESS管理バー表示等々） -->
     <?php wp_head(); ?>
@@ -110,25 +110,25 @@
 			wp_body_open(); 
 		?>
 
-  <div class="mask" id="mask"></div>
+    <div class="mask" id="mask"></div>
 
-  <!--  -->
-  <!-- 和Plus ホームページ・トップページ表示時のみ、ロード待ち画面表示 -->
-  <?php if ( $GB_pageKind == 0 ): ?>
-    <?php require_once( get_template_directory() . "/WaPlusThemeLibrary/php/tools/loadScreen.php" ); ?>
-  <?php endif; ?>
+    <!--  -->
+    <!-- 和Plus ホームページ・トップページ表示時のみ、ロード待ち画面表示 -->
+    <?php if ( $GB_pageKind == 0 ): ?>
+      <?php require_once( get_template_directory() . "/WaPlusThemeLibrary/php/utility/loadScreen.php" ); ?>
+    <?php endif; ?>
 
-  
+    
 
-  <?php // $GB_pageKind = 5; echo " >>>>> (1) \$GB_pageKind【 " . $GB_pageKind . " 】\n"; ?>
+    <?php // $GB_pageKind = 5; echo " >>>>> (1) \$GB_pageKind【 " . $GB_pageKind . " 】\n"; ?>
 
-  <!--  -->
-  <!-- サイトロード画面消去後ロード -->
-  <div class="<?php echo $pageWrapper ?>" id="pageWrapper" >
+    <!--  -->
+    <!-- サイトロード画面消去後ロード -->
+    <!-- ■ トップページ、上下スクロール移動対応部分（ページコンテンツ・フッター部）-->
+    <div class="<?php echo $pageWrapper ?>" id="pageWrapper" >
 
-    <div id="page" class="site" >
       <!--  -->
-      <!-- メインページ内ヘッダー部 -->
+      <!-- ■ メインページ内ヘッダー部（表示位置固定） -->
       <header class="siteHeader">
 
         <!--  -->
@@ -141,12 +141,12 @@
             <!-- // ■ 表示ページが、お問い合わせ入力・確認ページ以外の場合 -->
             <?php if ( $GB_page_flag != 1 ): ?>
                 <a href="<?php echo esc_url( home_url('/') ); ?>">
-                  <img class="waPlusLogoDef" src="<?php echo esc_url( get_template_directory_uri().'/wp-config/Images/WaPlus-Logo.png' ) ?>" alt="株式会社和Plus・和プラス・ワプラスのロゴマークと会社名が入った画像">
+                  <img class="waPlusLogoDef" src="<?php echo esc_url( get_template_directory_uri().'/WaPlusThemeLibrary/loadScreen/Images/WaPlus-Logo.png' ) ?>" alt="株式会社和Plus・和プラス・ワプラスのロゴマークと会社名が入った画像">
                 </a>
             <!--  -->
             <!-- // ■ 表示ページが、お問い合わせ入力・確認ページの場合、他のページには遷移させない！ -->
             <?php else: ?>
-                <img class="waPlusLogoDef" src="<?php echo esc_url( get_template_directory_uri().'/wp-config/Images/WaPlus-Logo.png' ) ?>" alt="株式会社和Plus・和プラス・ワプラスのロゴマークと会社名が入った画像">
+                <img class="waPlusLogoDef" src="<?php echo esc_url( get_template_directory_uri().'/WaPlusThemeLibrary/loadScreen/Images/WaPlus-Logo.png' ) ?>" alt="株式会社和Plus・和プラス・ワプラスのロゴマークと会社名が入った画像">
             <?php endif; ?>
           </div>
         <?php else: ?>
@@ -194,7 +194,7 @@
                 <ul>
                   <?php
                     $params = [ 'GB_pageKind' => $GB_pageKind ]; 
-                    get_template_part( '/WaPlusThemeLibrary/php/WaPlusThemeCreateNavMenuforHbg', null, $params );
+                    get_template_part( '/WaPlusThemeLibrary/php/utility/WaPlusThemeCreateNavMenuforHbg', null, $params );
                   ?>
                 </ul>
               </div>
@@ -222,7 +222,7 @@
 
                 <?php
                     $params = [ 'GB_pageKind' => $GB_pageKind ]; 
-                    get_template_part( '/WaPlusThemeLibrary/php/WaPlusThemeCreateNavMenu', null, $params );
+                    get_template_part( '/WaPlusThemeLibrary/php/utility/WaPlusThemeCreateNavMenu', null, $params );
                 ?>
 
               </ul>
@@ -238,21 +238,23 @@
           <?php endif; ?>
         <?php endif; ?>
       </header>
-    </div>
 
-    <!--  -->
-    <!-- スクロールガイド -->
-    <div class="scrollGuideArea">
-      <p>scroll</p><div class="downArrow"></div>
-    </div>
+      <!--  -->
+      <!-- スクロールガイド -->
+      <div class="scrollGuideArea">
+        <p>scroll</p><div class="downArrow"></div>
+      </div>
 
-    <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
-    <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
-    <!-- 【comFooter.php】にてクローズ定義！ -->
-    <div class="main container" id="mainArea"> 
-    <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
-    <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
+      <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
+      <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
+      <!-- 【comFooter.php】にてクローズ定義！ -->
+      <!--  -->
+      <!-- サイトロード画面消去後ロード -->
+      <!-- <div class="<?php // echo $pageWrapper ?>" id="pageWrapper" > -->
+      <div class="main" id="mainArea"> 
+      <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
+      <!-- ＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ -->
 
 
-      <?php  // echo "<br><<<<< Exit comHeader.php <<<<<<br>"; ?>
+        <?php  // echo "<br><<<<< Exit comHeader.php <<<<<<br>"; ?>
 

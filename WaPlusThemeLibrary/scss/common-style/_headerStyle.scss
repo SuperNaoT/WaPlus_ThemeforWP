@@ -35,10 +35,20 @@
 
   // 
   // ロゴ
+  // @include mquery( "pc" )  {
+  //   .headerLogo {
+  //     width: 50%;
+  //     display: flex;
+  //     justify-content: center;
+  
+  //     border: 20px solid limegreen;
+  //   }  
+  // }
   .waPlusLogo, .waPlusLogoNL, .waPlusLogoDef {
     @include mquery( "mb" ) { margin: 15px 30px; width: 50vw; max-width:  300px; };       // 2022-12-19
     // @include mquery( "pc" ) { margin: 15px  5vw; width: 17vw; margin-left: 10vw; };
-    @include mquery( "pc" ) { margin: 15px  3vw; width: 17vw; margin-left: 10vw; };
+    // @include mquery( "pc" ) { margin: 15px  3vw; width: 17vw; margin-left: 10vw; };
+    @include mquery( "pc" ) { margin: 15px  3vw; width: 275px; height: 80px; margin-left: 10vw; };
     transition: transform 500ms;
     // border: 2px dashed limegreen;
   }
@@ -55,8 +65,7 @@
   // 
   // ナビゲーションメニュー
   nav {
-    width: 40%;
-    width: 100%;              // 20230914 *****
+    width: 100%;
 
     // border: 2px solid limegreen;
     // 
@@ -155,7 +164,8 @@
 #pageWrapper {
   position: relative;
   top: #{$siteHeaderHeight};
-  // border: 2px dashed limegreen;
+
+  border: 5px dashed limegreen;
 }
 
 /* 

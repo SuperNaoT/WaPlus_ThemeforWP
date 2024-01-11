@@ -4,16 +4,25 @@
 // ***********************************************
 // ★ 共通利用値定義
 // ***********************************************
-// 画面最大有効幅
-$areaMaxWidth: 1250px;        // 1170px;
 
 // 
 // 当該サイト、ヘッダー高さを設定
 // ☛ この値にて、ヘッダー部高さを決め、
 // ☛ この値にて、mainContents 表示開始位置を決めている
 // 参照ファイル；_headerStyle.scss
-// 
-$siteHeaderHeight: 110px;
+$siteHeaderHeight:  100px;      // 110px;
+
+// セクション最大・最小有効幅
+$areaMaxWidth:  1200px;        // 1170px;
+$areaMaxHeight:  calc( 678px - $siteHeaderHeight );        // 550px;
+$areaMaxWidthL: 1500px;        // 1170px;
+$areaMaxHeightL: calc( 847px - $siteHeaderHeight );        // 750px;
+
+$areaMinWidth:  720px;
+$areaMinHeight:  calc( 406px - $siteHeaderHeight );
+$areaMinWidthL: 961px;
+$areaMinHeightL: calc( 542px - $siteHeaderHeight );
+
 
 $pcDefaultFSize: 16px;              // 16px 1vw;
 $pcDefaultFSize: 0.95vw;              // 16px 1vw;

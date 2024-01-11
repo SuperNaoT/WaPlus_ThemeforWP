@@ -10,19 +10,19 @@
 
 // 
 // 各種値、定義変数格納ファイル
-@import "./valuablesDefine";
+@import "./utility/valuablesDefine";
 
 // 
 // 各種値、定義変数格納ファイル
-@import "./mixinDefine";
+@import "./utility/mixinDefine";
 
 // 
 // サイトロードスクリーン表示関連定義格納ファイル
-@import "./siteLoadScreen";
+@import "./utility/siteLoadScreen";
 
 // 
 // ユーティリティ要素機能実装（ボタン・リンク下線アニメ・他）
-@import "./scrollGuide";
+@import "./utility/scrollGuide";
 
 // 
 // サイトヘッダー（ロゴ・ナビゲーションメニュー）
@@ -85,26 +85,23 @@ p {
   font-family:游明朝体, "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
 }
 
-.container {
-  width: 100%;
-  max-width: $areaMaxWidth;    //1170px;
-  height: 100%;
-  margin: 0 auto;
-    
-  // // 
-  // // ***** 20220321
-  // // 【Knowledge】＊＊＊＊＊
-  // // ※ アニメーションでの注意点！
-  // //   子要素が画面外から画面内に左右から移動してくる場合、
-  // //   その親要素について、はみ出た部分に非表示を設定しないと、
-  // //   画面を横にスワップすると、画面がグニャグニャと動く。
-  // //   特に、モバイル用レスポンシヴ画面にて、ＰＣ画面用要素と共有していると、
-  // //   当現象が、モバイル用レスポンシヴ画面にて発生する！
-  // overflow: hidden;
-
-  // border: 2px dashed rgba( 3, 3, 3, 0 );
-  border: 2px dashed red;
-
+@include mquery( "mb" ) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+      
+    border: 5px dashed red;
+  }
+}
+@include mquery( "pc" ) {
+  .container {
+    width: 177vh;
+    max-width:  $areaMaxWidthL;    //1170px;
+    min-height: $areaMinHeightL;
+    margin: 0 auto;
+      
+    border: 2px dashed red;
+  }
 }
 
 // 

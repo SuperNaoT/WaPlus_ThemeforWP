@@ -2,6 +2,7 @@
 
   if ( ! is_admin() ) {
 
+    // echo " <br><br><br>　>>>>> Enter CustomerSiteStyleSeet.php >>>>> <br>";
     // 
     // *******************************************************
     // *******************************************************
@@ -18,11 +19,11 @@
         $ver   = "";
         $media = "";
         // ハンドル名（識別要の文字列）.トップページ表示、個別定義用
-        $handle = 'topPage_css';
+        $handle = 'customerSite_css';
         // 特定のCSSの後で読み込ませたい場合はそのハンドル名（指定がなければ空の array() でも可）.
-        $deps = array( 'googleApis_css' );
+        $deps = array();
         // 追加したいCSSのURL.
-        $src = get_template_directory_uri().'/wp-config/assets/scss/contents/index/style.min.css';
+        $src = get_template_directory_uri().'/customerSiteConfiguration/assets/scss/contents/index/style.min.css';
         // CSSファイル取込実行
         wp_enqueue_style( $handle, $src, $deps, $ver, $media );
       }

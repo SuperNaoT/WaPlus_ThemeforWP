@@ -314,7 +314,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // *******************************************************
 // *******************************************************
 // require_once get_theme_file_path( '/WaPlusCfg/common-php/Mobile_Detect.php' );
-require_once( get_template_directory() . '/WaPlusThemeLibrary/php/tools/Mobile_Detect.php' );
+// require_once( get_template_directory() . '/WaPlusThemeLibrary/php/tools/Mobile_Detect.php' );
 
 // 
 // *******************************************************
@@ -322,15 +322,16 @@ require_once( get_template_directory() . '/WaPlusThemeLibrary/php/tools/Mobile_D
 // ★ 「和プラス標準テーマ」【グローバル変数値定義ファイル】の取込み
 // *******************************************************
 // *******************************************************
-require_once( get_template_directory() . '/WaPlusThemeLibrary/php/WaPlusThemeGlobalVariablesDef.php' );
+require_once( get_template_directory() . '/WaPlusThemeLibrary/php/utility/WaPlusThemeGlobalVariablesDef.php' );
 
 // 
 // *******************************************************
 // *******************************************************
 // ★ 「和プラス標準テーマ」【JavaScriptファイル】の取込み
+// 　 「カスタマサイト」利用【JavaScriptファイル】も取り込む
 // *******************************************************
 // *******************************************************
-require_once( get_template_directory() . '/WaPlusThemeLibrary/php/WaPlusThemeJavaScript.php' );
+require_once( get_template_directory() . '/WaPlusThemeLibrary/php/utility/WaPlusThemeJavaScript.php' );
 
 // 
 // *******************************************************
@@ -338,21 +339,12 @@ require_once( get_template_directory() . '/WaPlusThemeLibrary/php/WaPlusThemeJav
 // ★ 「和プラス標準テーマ」【スタイルシート】の取込み
 // *******************************************************
 // *******************************************************
-require_once( get_template_directory() . '/WaPlusThemeLibrary/php/WaPlusThemeStyleSheet.php' );
+require_once( get_template_directory() . '/WaPlusThemeLibrary/php/utility/WaPlusThemeStyleSheet.php' );
 
 // 
 // *******************************************************
 // *******************************************************
-// ★【カスタマーサイト独自JavaScriptファイル】の取込み
+// ★ 「カスタマサイト」利用【スタイルシート】の取込み
 // *******************************************************
 // *******************************************************
-// require_once( get_template_directory() . '/wp-config/common-php/myJavaScript.php' );
-
-// 
-// *******************************************************
-// *******************************************************
-// ★【カスタマーサイト独自スタイルシート】の取込み
-// *******************************************************
-// *******************************************************
-// require_once( get_template_directory() . '/wp-config/common-php/myStyleSheet.php' );
-  
+require_once( get_template_directory() . '/CustomerSiteConfiguration/common-php/CustomerSiteStyleSheet.php' );

@@ -14,7 +14,7 @@
         <div class="gra-out   -gradient"></div>
       </div>
       <h1>
-        <img src="<?php echo esc_url( get_template_directory_uri().'/WaPlusThemeLibrary/Images/WaPlus-Logo.png' ) ?>" id="loadWPLogo" alt="株式会社和Plus・和プラス・ワプラスのロゴマークが入った画像">
+        <img src="<?php echo esc_url( get_template_directory_uri().'/WaPlusThemeLibrary/Images/loadScreen/WaPlus-Logo.png' ) ?>" id="loadWPLogo" alt="株式会社和Plus・和プラス・ワプラスのロゴマークが入った画像">
         <span id="loadWPSpan1">W</span>
         <span id="loadWPSpan2">a</span>
         <span id="loadWPSpan3">P</span>

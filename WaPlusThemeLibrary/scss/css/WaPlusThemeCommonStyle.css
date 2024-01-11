@@ -357,14 +357,14 @@ body {
   visibility: hidden;
   transition: 0.3s;
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   .loading {
-    background-image: url("./../../Images/loadBGImage.jpg");
+    background-image: url("./../../Images/loadScreen/loadBGImage.jpg");
   }
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   .loading {
-    background-image: url("./../../Images/loadBGImage_MB.jpg");
+    background-image: url("./../../Images/loadScreen/loadBGImage_MB.jpg");
   }
 }
 .loading .gradient .-gradient {
@@ -392,7 +392,7 @@ body {
   right: 50%;
   transform: translateX(50%);
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   .loading h1 {
     top: 42%;
   }
@@ -467,12 +467,12 @@ p {
   z-index: 999;
   /* 60px */
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   .scrollGuideArea {
     left: 10px;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   .scrollGuideArea {
     left: 30px;
   }
@@ -535,35 +535,35 @@ p {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 110px;
+  height: 100px;
   z-index: 1;
 }
 .siteHeader .waPlusLogo, .siteHeader .waPlusLogoNL, .siteHeader .waPlusLogoDef {
   transition: transform 500ms;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   .siteHeader .waPlusLogo, .siteHeader .waPlusLogoNL, .siteHeader .waPlusLogoDef {
     margin: 15px 30px;
     width: 50vw;
     max-width: 300px;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   .siteHeader .waPlusLogo, .siteHeader .waPlusLogoNL, .siteHeader .waPlusLogoDef {
     margin: 15px 3vw;
-    width: 17vw;
+    width: 275px;
+    height: 80px;
     margin-left: 10vw;
   }
 }
 .siteHeader .waPlusLogoDef {
-  height: calc( 110px - 20px ) !important;
-  width: calc( 110px - 20px ) !important;
+  height: calc(100px - 20px) !important;
+  width: calc(100px - 20px) !important;
 }
 .siteHeader .waPlusLogo:hover, .siteHeader .waPlusLogoDef:hover {
   transform: scale(1.05);
 }
 .siteHeader nav {
-  width: 40%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -583,7 +583,7 @@ p {
 .siteHeader nav .mainNav .navInter:nth-of-type(1) {
   width: 100px;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   .siteHeader nav .mainNav {
     display: none;
   }
@@ -593,12 +593,12 @@ p {
   top: 0;
   height: 48px;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   .siteHeader .hamburgerMenu-Wrapper {
     display: block;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   .siteHeader .hamburgerMenu-Wrapper {
     display: none;
   }
@@ -978,7 +978,8 @@ p {
 
 #pageWrapper {
   position: relative;
-  top: 110px;
+  top: 100px;
+  border: 5px dashed limegreen;
 }
 
 /* 
@@ -1023,12 +1024,12 @@ footer .siteFooter {
   justify-content: center;
   width: 90%;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter {
     flex-direction: column;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   footer .siteFooter {
     flex-direction: row;
   }
@@ -1037,7 +1038,7 @@ footer .siteFooter .cmpyInfo {
   flex-direction: column;
   text-align: center;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter .cmpyInfo {
     margin: 0 auto;
     margin-top: 50px;
@@ -1045,22 +1046,24 @@ footer .siteFooter .cmpyInfo {
     width: 90vw;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   footer .siteFooter .cmpyInfo {
-    margin: 80px 0 0 0;
+    margin: 30px 0 0 0;
     padding: 0 0;
   }
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter .cmpyInfo .footerLogo img {
     margin: 0 30px;
-    width: 10vh;
+    width: 40%;
+    max-width: 250px;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   footer .siteFooter .cmpyInfo .footerLogo img {
     margin: 20px 5vw;
-    width: 15vw;
+    width: 250px;
+    height: 72px;
   }
 }
 footer .siteFooter .cmpyInfo .footerLogo:hover {
@@ -1073,7 +1076,7 @@ footer .siteFooter .cmpyInfo h2 {
   line-height: 1em;
   color: #647C92;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter .cmpyInfo h2 {
     font-size: 1.2em !important;
     margin: 20px auto;
@@ -1088,14 +1091,14 @@ footer .siteFooter .cmpyInfo .waPlusAddr {
   font-weight: bold;
   line-height: 1.5em;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter .cmpyInfo .waPlusAddr {
     width: 60%;
     margin: 0 auto;
     margin-top: 20px;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   footer .siteFooter .cmpyInfo .waPlusAddr {
     width: 60%;
     margin: 20px auto;
@@ -1105,35 +1108,38 @@ footer .siteFooter #footerNav {
   text-align: left;
   font-size: 0.9em;
   font-weight: bold;
+  line-height: 1em;
   margin-bottom: 0;
   padding: 40px 20px;
 }
-@media screen and (max-width: 679px) {
+footer .siteFooter #footerNav .subMenuDispPos {
+  font-size: 0.8em;
+}
+@media screen and (max-width: 960px) {
   footer .siteFooter #footerNav {
-    width: 65%;
-    margin: 0px auto;
-    line-height: 1.2em;
-    padding: 30px 0 20px 0;
+    margin: 10px auto;
+    margin-top: 20px;
+    padding: 10px;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   footer .siteFooter #footerNav {
     margin: 80px 10px 20px 20px;
-    margin: 80px 20px 20px 0px;
+    margin: 80px 20px 20px 30px;
   }
 }
 footer .siteFooter .brandLink {
   display: flex;
   justify-content: center;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter .brandLink {
     height: 15vw;
     margin-top: 20px !important;
     margin-bottom: 40px;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   footer .siteFooter .brandLink {
     height: 5vw;
     margin-top: 120px !important;
@@ -1146,17 +1152,25 @@ footer .siteFooter .brandLink .inekkaLink, footer .siteFooter .brandLink .inekka
   border-radius: 15px;
   background-image: url("./../../Images/i-nekka/i-nekka_Edwardian_1024.jpg");
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter .brandLink .inekkaLink, footer .siteFooter .brandLink .inekkaLinkNL {
     margin: 0 auto;
     width: 15vw;
     height: 15vw;
+    min-width: 35px;
+    min-height: 35px;
+    max-width: 60px;
+    max-height: 60px;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   footer .siteFooter .brandLink .inekkaLink, footer .siteFooter .brandLink .inekkaLinkNL {
     width: 5vw;
     height: 5vw;
+    min-width: 70px;
+    min-height: 70px;
+    max-width: 100px;
+    max-height: 100px;
   }
 }
 footer .siteFooter .brandLink .inekkaLink:hover {
@@ -1172,24 +1186,32 @@ footer .siteFooter .brandLink .ACestusLink, footer .siteFooter .brandLink .ACest
   background-size: contain;
   background-repeat: no-repeat;
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter .brandLink .ACestusLink, footer .siteFooter .brandLink .ACestusLinkNL {
     margin: 0 auto;
     width: 15vw;
     height: 15vw;
+    min-width: 35px;
+    min-height: 35px;
+    max-width: 60px;
+    max-height: 60px;
   }
 }
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
   footer .siteFooter .brandLink .ACestusLink, footer .siteFooter .brandLink .ACestusLinkNL {
     width: 5vw;
     height: 5vw;
+    min-width: 70px;
+    min-height: 70px;
+    max-width: 100px;
+    max-height: 100px;
   }
 }
 footer .siteFooter .brandLink .ACestusLink:hover {
   transition: transform 0.5s;
   transform: scale(1.05);
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   footer .siteFooter .digiCertImg {
     margin-top: 30px;
     width: 30%;
@@ -1200,6 +1222,7 @@ footer .w3cValidation {
 }
 footer .rightsNote {
   padding: 0 0 30px 0;
+  font-size: 0.8em;
 }
 
 /* 
@@ -1264,20 +1287,28 @@ p {
   font-family: 游明朝体, "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
 }
 
-.container {
-  width: 100%;
-  max-width: 1250px;
-  height: 100%;
-  margin: 0 auto;
-  border: 2px dashed red;
+@media screen and (max-width: 960px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    border: 5px dashed red;
+  }
 }
-
-@media screen and (min-width: 680px) {
+@media screen and (min-width: 961px) {
+  .container {
+    width: 177vh;
+    max-width: 1500px;
+    min-height: 442px;
+    margin: 0 auto;
+    border: 2px dashed red;
+  }
+}
+@media screen and (min-width: 961px) {
   .forMB {
     display: none;
   }
 }
-@media screen and (max-width: 679px) {
+@media screen and (max-width: 960px) {
   .forPC {
     display: none;
   }
